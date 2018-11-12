@@ -11,7 +11,7 @@ export class Controller {
 
     if (e.target && e.target.nodeName == "A") {
       const source = e.target.getAttribute('data-id');
-      this.model.setPosts(source, this.view.renderPosts);
+      this.model.setPosts(source);
     }
   }
 }
