@@ -4,7 +4,6 @@ export class ChannelModel extends BaseModel {
   constructor() {
     super();
     this.channels = null;
-
     this.setChannels.apply(this);
   }
 

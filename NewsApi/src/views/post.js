@@ -4,10 +4,9 @@ export class PostView extends BaseView {
   constructor(model) {
     super(model);
     this.posts = document.getElementById("posts");
-    this.update = this.update.bind(this);
   }
 
-  update(data) {
+  update = data => {
     this.posts.innerHTML = '';
 
     data.forEach(({ url, urlToImage, title, source }) => {
