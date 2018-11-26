@@ -1,6 +1,7 @@
-import { BaseView } from './base';
+import { BaseView } from '../base';
+import './style.scss';
 
-export class ChannelView extends BaseView {
+export class ChannelsView extends BaseView {
   constructor(model) {
     super(model);
     this.channels = document.getElementById("channels");

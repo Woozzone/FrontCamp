@@ -1,16 +1,16 @@
-import { ChannelModel } from './models/channel';
-import { ChannelView } from './views/channel';
-import { PostModel } from './models/post';
-import { PostView } from './views/post';
-import { Controller } from './controllers';
+import { ChannelsModel } from './models/channels';
+import { ChannelsView } from './views/channels';
+import { PostsModel } from './models/posts';
+import { PostsView } from './views/posts';
+import { ChannelsController } from './controllers/channels';
 
 import './assets/stylesheets/style.scss';
 
-const channelModel = new ChannelModel();
-const channelView = new ChannelView(channelModel);
-const postModel = new PostModel();
-const postView = new PostView(postModel);
-const appController = new Controller(postModel, channelView);
+const channelsModel = new ChannelsModel();
+const channelsView = new ChannelsView(channelsModel);
+const postsModel = new PostsModel();
+const postsView = new PostsView(postsModel);
+const channelsController = new ChannelsController(postsModel, channelsView);
 
 
 

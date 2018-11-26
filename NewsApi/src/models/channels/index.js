@@ -1,6 +1,6 @@
-import { BaseModel } from './base';
+import { BaseModel } from '../base';
 
-export class ChannelModel extends BaseModel {
+export class ChannelsModel extends BaseModel {
   constructor() {
     super();
     this.channels = null;
