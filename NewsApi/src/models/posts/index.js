@@ -1,6 +1,6 @@
-import { BaseModel } from './base';
+import { BaseModel } from '../base';
 
-export class PostModel extends BaseModel {
+export class PostsModel extends BaseModel {
   constructor() {
     super();
     this.posts = null;

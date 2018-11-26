@@ -1,4 +1,4 @@
-export class Controller {
+export class ChannelsController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
