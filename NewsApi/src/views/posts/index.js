@@ -1,4 +1,5 @@
 import { BaseView } from '../base';
+import './style.scss';
 
 export class PostsView extends BaseView {
   constructor(model) {

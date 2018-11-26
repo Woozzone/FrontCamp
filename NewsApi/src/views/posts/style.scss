@@ -1,0 +1,67 @@
+@import '../../assets/stylesheets/variables.scss';
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: $offset-xl 0;
+
+  .post {
+    position: relative;
+    display: block;
+    width: calc((100% - #{$offset-base} * 2) / 3);
+    text-decoration: none;
+    margin-bottom: $offset-base;
+
+    @media(max-width: $breakpoint-tablet) {
+      width: calc((100% - #{$offset-base}) / 2);
+    }
+
+    @media(max-width: $breakpoint-mobile) {
+      width: 100%;
+    }
+
+    &:hover,
+    &:focus {
+      figcaption {
+        background-color: $color-secondary;
+      }
+    }
+
+    .source {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 10px 8px;
+      text-transform: uppercase;
+      font-size: $font-size-xs;
+      font-weight: 900;
+      background-color: $color-secondary;
+      color: $color-white;
+      letter-spacing: 0.05em;
+    }
+
+    figure {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+      img {
+        flex-shrink: 0;
+        width: 100%;
+        height: auto;
+      }
+
+      figcaption {
+        line-height: 1.2;
+        box-sizing: border-box;
+        font-size: $font-size-base;
+        color: $color-white;
+        background: $color-primary;
+        border-bottom: 0;
+        padding: $offset-base;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+}

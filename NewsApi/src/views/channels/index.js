@@ -1,4 +1,5 @@
 import { BaseView } from '../base';
+import './style.scss';
 
 export class ChannelsView extends BaseView {
   constructor(model) {
