@@ -7,17 +7,11 @@ export class ChannelsController extends BaseController {
     this.view.updatePosts = this.updatePosts.bind(this);
   }
 
-  setCurrent = source => {
-    this.model.current = source;
-  }
-
   updatePosts(e) {
     e.preventDefault();
 
     if (e.target && e.target.nodeName == "A") {
       const source = e.target.getAttribute('data-id');
-
-      this.setCurrent(source);
       
       if (this.model.setPosts) {
         this.model.setPosts(source);

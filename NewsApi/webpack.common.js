@@ -2,8 +2,22 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: ['@babel/polyfill', 'whatwg-fetch', './src/'],
+  output: {
+    chunkFilename: '[name].js'
+  },
+  resolveLoader: {
+    modules: [
+      'node_modules',
+      'loaders'
+    ]
+  },
   module: {
     rules: [
+      {
+        test: /\.json$/,
+        use: ['property-filter-loader', 'custom-json-loader'],
+        type: "javascript/auto"
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
