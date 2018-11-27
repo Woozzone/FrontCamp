@@ -1,9 +1,10 @@
-import { BaseModel } from '../base';
+import { BaseModel } from '../';
 
 export class ChannelsModel extends BaseModel {
   constructor() {
     super();
     this.channels = null;
+    this.current = null;
     this.setChannels.apply(this);
   }
 

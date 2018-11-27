@@ -1,4 +1,4 @@
-import { BaseModel } from '../base';
+import { BaseModel } from '..';
 
 export class PostsModel extends BaseModel {
   constructor() {

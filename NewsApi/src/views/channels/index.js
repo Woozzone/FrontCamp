@@ -1,4 +1,4 @@
-import { BaseView } from '../base';
+import { BaseView } from '..';
 import './style.scss';
 
 export class ChannelsView extends BaseView {
