@@ -1,0 +1,26 @@
+[
+  {
+    "0": "number property",
+    "testData": {
+      "1": "number property",
+      "NaN": "not a number"
+    } 
+  },
+  {
+    "testData": {
+      "0": "number property",
+      "1": "number property",
+      "NaN": [
+        {
+          "0": "number",
+          "1123": "number",
+          "not a number": "not a number"
+        },
+        {
+          "0": "number",
+          "not a number": "not a number"
+        }
+      ]
+    } 
+  }
+]
