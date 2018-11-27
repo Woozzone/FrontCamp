@@ -9,6 +9,10 @@ body {
   font-weight: 300;
 }
 
+main {
+  padding: $offset-xl 0;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -26,4 +30,29 @@ img {
 .page-subtitle {
   font-size: $font-size-heading;
   text-align: center;
+}
+
+.align-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+  border: 0;
+  background: $color-primary;
+  color: $color-white;
+  padding: $offset-base $offset-xl;
+  cursor: pointer;
+  font-family: $primary-font-family;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease;
+
+  &:hover, 
+  &:focus {
+    background-color: $color-secondary;
+    outline: none;
+  }
 }
