@@ -1,11 +1,18 @@
-import Request from '../../api/requests';
+import NewsService from '../../api/service';
 import BaseModel from '..';
 
 export default class PostsModel extends BaseModel {
   constructor() {
     super();
     this.posts = null;
-    this.setPosts.apply(this);
+    this.initialize();
+  }
+
+  async initialize() {
+    const data = await NewsService.getTopPosts();
+
+    this.posts = data.articles;
+    this.notify(this.posts);
   }
 
   getPosts() {
@@ -13,13 +20,9 @@ export default class PostsModel extends BaseModel {
   }
 
   async setPosts(source) {
-    const response = await Request.send('top-headlines', source);
+    const data = await NewsService.getPostsBySource(source);
 
-    if (response.isError) {
-      return;
-    }
-
-    this.posts = response.data.articles;
+    this.posts = data.articles;
     this.notify(this.posts);
   }
 }

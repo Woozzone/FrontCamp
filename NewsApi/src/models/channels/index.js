@@ -1,4 +1,4 @@
-import Request from '../../api/requests';
+import NewsService from '../../api/service';
 import BaseModel from '../';
 
 export default class ChannelsModel extends BaseModel {
@@ -13,13 +13,9 @@ export default class ChannelsModel extends BaseModel {
   }
 
   async setChannels() {
-    const response = await Request.send('sources');
+    const data = await NewsService.getChannels();
 
-    if (response.isError) {
-      return;
-    }
-
-    this.channels = response.data.sources;
+    this.channels = data.sources;
     this.notify(this.channels);
   }
 }

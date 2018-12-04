@@ -14,4 +14,9 @@ export default class ExceptionsModel extends BaseModel {
     this.exception = exception;
     this.notify(this.exception);
   }
+
+  clearException() {
+    this.exception = null;
+    this.notify(this.exception);
+  }
 }

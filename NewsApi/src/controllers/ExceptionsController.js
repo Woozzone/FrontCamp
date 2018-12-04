@@ -1,23 +1,35 @@
-export default class ExceptionsController {
-  constructor() {
-    if (!ExceptionsController.instance) {
-      ExceptionsController.instance = this;
-    } else {
-      throw new Error('Please use .getInstance() method instead of new operator.');
-    }
+import ERRORS from '../api/errors';
 
-    this.initialize();
+class ExceptionsController {
+  constructor() {
+    this.handleExceptions = this.handleExceptions.bind(this);
   }
 
   async initialize() {
     const { default: ExceptionsModel } = await import(/* webpackChunkName: "exceptionsModel", webpackPrefetch: true */ '../models/exceptions');
-    const { default: ExceptionsView } = await import(/* webpackChunkName: "exceptionsView", webpackPrefetch: true */ '../views/exceptions');
+    this.model = new ExceptionsModel();
 
-    this.exceptionsModel = await new ExceptionsModel();
-    this.exceptionsView = await new ExceptionsView(this.exceptionsModel);
+    const { default: ExceptionsView } = await import(/* webpackChunkName: "exceptionsView", webpackPrefetch: true */ '../views/exceptions');
+    this.view = new ExceptionsView(this.model);
+    this.view.clearException = this.clearException.bind(this);
   }
 
-  static getInstance() {
-    return ExceptionsController.instance || new ExceptionsController();
+  setException(exception) {
+    this.model.setException(exception);
+  }
+
+  clearException() {
+    this.model.clearException();
+  }
+
+  async handleExceptions(response) {
+    if (!response.ok) {
+      await this.initialize();
+      this.setException(ERRORS[response.status]);
+    }
+
+    return response;
   }
 }
+
+export default new ExceptionsController();

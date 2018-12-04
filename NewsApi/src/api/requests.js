@@ -1,26 +1,14 @@
-import ExceptionController from '../controllers/ExceptionsController';
-const key = 'e048fec14ad14fa9a9f0d34d1542d787';
+import exceptionController from '../controllers/ExceptionsController';
+
+const API_KEY = 'e048fec14ad14fa9a9f0d34d1542d787';
+const BASE_PATH = 'https://newsapi.org/v2/';
 
 export class Request {
-  constructor() {
-    this.path = 'https://newsapi.org/v2/';
-  }
-
-  async send(endpoint = 'everything', source, lang = 'en') {
-    source = source ? `&sources=${source}` : '';
-    const response = await fetch(`${this.path}${endpoint}?language=${lang}${source}&apiKey=${key}`);
+  async send(endpoint = 'everything', query = '') {
+    const response = await fetch(`${BASE_PATH}${endpoint}?language=en&apiKey=${API_KEY}${query}`).then(exceptionController.handleExceptions);
     const data = await response.json();
-    const isError = response.status !== 200;
-    let exceptionController;
 
-    if (isError) {
-      exceptionController = await new ExceptionController();
-    }
-
-    return {
-      isError,
-      data
-    };
+    return data;
   }
 }
 
