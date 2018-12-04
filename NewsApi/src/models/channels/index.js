@@ -13,8 +13,13 @@ export default class ChannelsModel extends BaseModel {
   }
 
   async setChannels() {
-    const data = await Request.send('sources');
-    this.channels = data.sources;
+    const response = await Request.send('sources');
+
+    if (response.isError) {
+      return;
+    }
+
+    this.channels = response.data.sources;
     this.notify(this.channels);
   }
 }

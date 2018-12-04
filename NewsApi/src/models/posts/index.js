@@ -13,8 +13,13 @@ export default class PostsModel extends BaseModel {
   }
 
   async setPosts(source) {
-    const data = await Request.send('top-headlines', source);
-    this.posts = data.articles;
+    const response = await Request.send('top-headlines', source);
+
+    if (response.isError) {
+      return;
+    }
+
+    this.posts = response.data.articles;
     this.notify(this.posts);
   }
 }
