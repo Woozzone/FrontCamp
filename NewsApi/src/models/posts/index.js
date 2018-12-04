@@ -1,6 +1,7 @@
-import { BaseModel } from '..';
+import Request from '../../api/requests';
+import BaseModel from '..';
 
-export class PostsModel extends BaseModel {
+export default class PostsModel extends BaseModel {
   constructor() {
     super();
     this.posts = null;
@@ -12,8 +13,7 @@ export class PostsModel extends BaseModel {
   }
 
   async setPosts(source) {
-    const response = await fetch(`https://newsapi.org/v2/top-headlines?${source ? `sources=${source}&` : ''}language=en&apiKey=${this.key}`);
-    const data = await response.json();
+    const data = await Request.send('top-headlines', source);
     this.posts = data.articles;
     this.notify(this.posts);
   }

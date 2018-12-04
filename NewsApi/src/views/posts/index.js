@@ -1,7 +1,7 @@
 import { BaseView } from '..';
 import './style.scss';
 
-export class PostsView extends BaseView {
+export default class PostsView extends BaseView {
   constructor(model) {
     super(model);
     this.posts = document.getElementById("posts");
