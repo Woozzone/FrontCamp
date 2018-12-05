@@ -15,7 +15,11 @@ export default class ExceptionsView extends BaseView {
 
   update = body => {
     if (!body) {
-      document.getElementById('popup').remove();
+      this.popup = document.getElementById('popup')
+      if (this.popup) {
+        this.popup.remove();
+      }
+
       return;
     }
 
