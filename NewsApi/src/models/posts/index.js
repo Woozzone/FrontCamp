@@ -1,10 +1,18 @@
-import { BaseModel } from '..';
+import NewsService from '../../api/service';
+import BaseModel from '..';
 
-export class PostsModel extends BaseModel {
+export default class PostsModel extends BaseModel {
   constructor() {
     super();
     this.posts = null;
-    this.setPosts.apply(this);
+    this.initialize();
+  }
+
+  async initialize() {
+    const data = await NewsService.getTopPosts();
+
+    this.posts = data.articles;
+    this.notify(this.posts);
   }
 
   getPosts() {
@@ -12,8 +20,8 @@ export class PostsModel extends BaseModel {
   }
 
   async setPosts(source) {
-    const response = await fetch(`https://newsapi.org/v2/top-headlines?${source ? `sources=${source}&` : ''}language=en&apiKey=${this.key}`);
-    const data = await response.json();
+    const data = await NewsService.getPostsBySource(source);
+
     this.posts = data.articles;
     this.notify(this.posts);
   }

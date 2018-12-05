@@ -1,10 +1,10 @@
-import { BaseModel } from '../';
+import NewsService from '../../api/service';
+import BaseModel from '../';
 
-export class ChannelsModel extends BaseModel {
+export default class ChannelsModel extends BaseModel {
   constructor() {
     super();
     this.channels = null;
-    this.current = null;
     this.setChannels.apply(this);
   }
 
@@ -13,8 +13,8 @@ export class ChannelsModel extends BaseModel {
   }
 
   async setChannels() {
-    const response = await fetch(`https://newsapi.org/v2/sources?language=en&apiKey=${this.key}`);
-    const data = await response.json();
+    const data = await NewsService.getChannels();
+
     this.channels = data.sources;
     this.notify(this.channels);
   }

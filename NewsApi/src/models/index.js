@@ -1,6 +1,5 @@
-export class BaseModel {
+export default class BaseModel {
   constructor() {
-    this.key = 'e048fec14ad14fa9a9f0d34d1542d786';
     this.observers = [];
   }
 
