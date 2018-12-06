@@ -1,0 +1,14 @@
+@import './colors';
+@import './font-sizes';
+
+// Breakpoints.
+$breakpoint-tablet: 991px;
+$breakpoint-mobile: 568px;
+
+// Offsets.
+$offset-base: 15px;
+$offset-lg: 30px;
+$offset-xl: 60px;
+
+// Fonts.
+$primary-font-family: 'Montserrat';

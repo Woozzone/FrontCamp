@@ -1,11 +1,7 @@
 const handler = {
-  get(target, prop) {
-    const method = target[prop];
-    return function(...args) {
-      console.log(`Performing "${prop}" method with following args ${JSON.stringify(args)}`);
-      let result = method.apply(this, args);
-      return result;
-    };
+  get: (target, prop) => (...args) => {
+    console.log(`Performing "${prop}" method with following args ${JSON.stringify(args)}`);
+    return target[prop](...args);
   }
 };
 

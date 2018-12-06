@@ -1,7 +1,11 @@
 @import '~reset-css/sass/reset';
-@import './variables';
-@import './layout';
-@import './fonts.scss';
+
+// Core.
+@import './core/variables';
+@import './core/fonts.scss';
+
+// Layout.
+@import './layout/global';
 
 body {
   background-color: $color-background;
