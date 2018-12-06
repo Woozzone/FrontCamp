@@ -7,18 +7,14 @@ export default class ExceptionsView extends BaseView {
     this.popup = document.getElementById('popup');
 
     document.body.addEventListener('click', e => {
-      if (e.target.parentNode.id === 'popup' && e.target.nodeName === 'BUTTON') {
-        this.clearException();
-      }
+      e.target.parentNode.id === 'popup' && e.target.nodeName === 'BUTTON' && this.clearException();
     });
   }
 
   update = body => {
     if (!body) {
-      this.popup = document.getElementById('popup')
-      if (this.popup) {
-        this.popup.remove();
-      }
+      this.popup = document.getElementById('popup');
+      this.popup && this.popup.remove();
 
       return;
     }
@@ -31,7 +27,7 @@ export default class ExceptionsView extends BaseView {
     `;
 
     if (this.popup) {
-      this.popup.outerHTML = view;
+      this.popup.children['P'].innerText = body;
     } else {
       document.getElementById('app').insertAdjacentHTML('beforeend', view);
     }
