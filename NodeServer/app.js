@@ -45,6 +45,6 @@ app.use(clientErrorHandler);
 app.use(errorHandler);
 
 // Server Start.
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('Server is Running');
 });
