@@ -1,8 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const articleController = require('../controllers/article.controller');
+const {
+  getArticles,
+  getArticle,
+  addArticle,
+  updateArticle,
+  deleteArticle
+} = require('../controllers/article.controller');
 
-router.get('/', articleController.test);
-router.post('/', articleController.create);
+router
+  .get('/', getArticles)
+  .post('/', addArticle)
+  .get('/:id', getArticle)
+  .put('/:id', updateArticle)
+  .delete('/:id', deleteArticle);
 
 module.exports = router;
