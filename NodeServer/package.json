@@ -2,11 +2,13 @@
   "name": "NodeServer",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node ./app.js"
   },
-  "keywords": [],
+  "keywords": [
+    "heroku"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -15,5 +17,8 @@
     "mongoose": "^5.4.4",
     "morgan": "^1.9.1",
     "pug": "^2.0.3"
+  },
+  "engines": {
+    "node": "8.x"
   }
 }
