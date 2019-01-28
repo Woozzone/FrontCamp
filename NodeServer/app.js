@@ -2,15 +2,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const fs = require('fs');
+const dotenv = require('dotenv');
 const morgan = require('morgan');
 
 // Routes Import.
 const indexRoute = require('./routes');
 const articleRoute = require('./routes/article.route');
 
+// Environment Variables Setup.
+dotenv.config();
+
 // DB setup.
-const DB_URL = 'mongodb://userino:123qwe@ds129462.mlab.com:29462/news';
-mongoose.connect(DB_URL, {useNewUrlParser: true});
+mongoose.connect(process.env.DB_URL, {useNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
