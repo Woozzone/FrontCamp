@@ -1,4 +1,5 @@
 const express = require('express');
+const passport = require('passport');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const fs = require('fs');
@@ -38,15 +39,15 @@ const app = express();
 app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(passport.initialize());
 
 // Logger setting.
 const logStream = fs.createWriteStream('access.log', { flags: 'a' });
 app.use(morgan(':url :date[web]', { stream: logStream }));
 
 // Routes.
-app.use('/', indexRoute);
+app.use('/', [indexRoute, userRoute]);
 app.use('/articles', articleRoute);
-app.use('/users', userRoute);
 app.use(clientErrorHandler);
 app.use(errorHandler);
 
