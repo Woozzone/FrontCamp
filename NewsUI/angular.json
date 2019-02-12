@@ -31,7 +31,9 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "../node_modules/normalize-scss/sass/"
+                "../node_modules/normalize-scss/sass/",
+                "../node_modules/bootstrap-4-grid/scss/",
+                "./src/"
               ]
             },
             "scripts": [],
