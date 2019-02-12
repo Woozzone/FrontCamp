@@ -1,7 +1,7 @@
 @import 'assets/scss/core/variables';
 
 .site-header {
-  border-bottom: 2px solid $tertiary-color;
+  background-color: $background-color;
 
   .container {
     display: flex;

@@ -1,0 +1,10 @@
+@import 'assets/scss/core/variables';
+
+.page-header {
+  text-align: center;
+  font-family: $secondary-font-family;
+  background-color: $tertiary-color;
+  padding: $base-offset 0;
+  font-weight: bold;
+  color: $primary-color;
+}

@@ -1,0 +1,23 @@
+<article *ngFor="let article of articles" class="row">
+  <div class="col-md-3">
+    <div
+      class="image"
+      [ngStyle]="{ 'background-image': 'url(' + article.urlToImage + ')' }"
+    ></div>
+  </div>
+  <div class="col-md-7">
+    <div class="content">
+      <h2 class="title">
+        <a href={{article.url}}>{{ article.title }}</a>
+      </h2>
+      <p class="description">{{ article.description }}</p>
+      <a class="btn" href={{article.url}}>Read More</a>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="actions">
+      <a class="btn" href="#">Edit</a>
+      <a class="btn error" href="#">Delete</a>
+    </div>
+  </div>
+</article>

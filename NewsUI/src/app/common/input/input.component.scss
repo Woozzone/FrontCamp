@@ -1,0 +1,26 @@
+@import 'assets/scss/core/variables';
+
+input {
+  padding: $sm-offset;
+  border: 0;
+  border-bottom: 2px solid $tertiary-color;
+  font-family: $primary-font-family;
+
+  &:hover,
+  &:focus {
+    border-color: $secondary-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    font-family: $primary-font-family;
+    color: $text-color;
+  }
+
+  &[type='checkbox'] {
+    margin-right: $sm-offset;
+  }
+}

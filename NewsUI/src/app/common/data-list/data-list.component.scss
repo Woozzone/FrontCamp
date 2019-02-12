@@ -1,0 +1,24 @@
+@import 'assets/scss/core/variables';
+
+input {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid $tertiary-color;
+  padding: $sm-offset;
+  font-family: $primary-font-family;
+  color: $text-color;
+
+  &:hover,
+  &:focus {
+    border-color: $secondary-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+}
