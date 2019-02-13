@@ -1,6 +1,7 @@
 @import 'assets/scss/core/variables';
 
 .site-footer {
+  margin-top: $xl-offset;
   background-color: $primary-color;
   color: $background-color;
   padding: $base-offset;

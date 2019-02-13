@@ -6,7 +6,8 @@
   flex-direction: column-reverse;
 }
 
-input {
+textarea {
+  min-height: 150px;
   background-color: transparent;
   padding: $sm-offset;
   border: 0;
@@ -42,10 +43,10 @@ label {
   pointer-events: none;
   transition: all 0.3s ease;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: $sm-offset;
   color: $muted-color;
-  transform: translateY(-50%);
+  transform: translateY(100%);
   font-weight: bold;
   font-family: $secondary-font-family;
 }

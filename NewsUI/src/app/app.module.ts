@@ -7,9 +7,13 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { PageHeaderComponent } from './layout/page-header/page-header.component';
 import { ControlComponent } from './control/control.component';
 import { DataListComponent } from './common/data-list/data-list.component';
-import { ArticlesListComponent } from './articles/listing/articles-list.component';
+import { ArticlesListComponent } from './articles/article-listing/articles-list.component';
 import { InputComponent } from './common/input/input.component';
-import { ArticleDetailComponent } from './articles/detail/article-detail.component';
+import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ArticleEditComponent } from './articles/article-edit/article-edit.component';
+import { ArticleCreateComponent } from './articles/article-create/article-create.component';
+import { TextareaComponent } from './common/textarea/textarea.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +25,14 @@ import { ArticleDetailComponent } from './articles/detail/article-detail.compone
     DataListComponent,
     ArticlesListComponent,
     InputComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    ArticleEditComponent,
+    ArticleCreateComponent,
+    TextareaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

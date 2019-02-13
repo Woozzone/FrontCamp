@@ -16,4 +16,8 @@ export class ApiService {
   getArticles(): Article[] {
     return articles;
   }
+
+  getArticle(title: String): Article {
+    return articles.find(article => article.title === title)
+  }
 }

@@ -1,0 +1,20 @@
+@import 'assets/scss/core/variables';
+
+form {
+  padding: $xl-offset;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.03);
+  background-color: $background-color;
+  border-radius: 3px;
+
+  .input-field {
+    margin-top: $xl-offset;
+  }
+
+  .actions {
+    margin-top: $xl-offset;
+
+    .btn {
+      margin-right: $sm-offset;
+    }
+  }
+}
