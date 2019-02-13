@@ -1,0 +1,23 @@
+@import 'assets/scss/core/variables';
+
+input[type=checkbox] {
+  display: none;
+
+  &:checked {
+    + span {
+      background-color: $primary-color;
+    }
+  }
+}
+
+label {
+  padding-left: 20px + $sm-offset;
+}
+
+span {
+  position: absolute;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid $primary-color;
+}

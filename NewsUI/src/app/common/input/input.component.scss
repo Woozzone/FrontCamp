@@ -32,10 +32,6 @@ input {
     font-family: $primary-font-family;
     color: $text-color;
   }
-
-  &[type='checkbox'] {
-    margin-right: $sm-offset;
-  }
 }
 
 label {

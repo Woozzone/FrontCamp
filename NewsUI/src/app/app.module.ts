@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ArticleEditComponent } from './articles/article-edit/article-edit.component';
 import { ArticleCreateComponent } from './articles/article-create/article-create.component';
 import { TextareaComponent } from './common/textarea/textarea.component';
+import { ArticleLoadComponent } from './articles/article-load/article-load.component';
+import { CheckboxComponent } from './common/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { TextareaComponent } from './common/textarea/textarea.component';
     ArticleDetailComponent,
     ArticleEditComponent,
     ArticleCreateComponent,
-    TextareaComponent
+    TextareaComponent,
+    ArticleLoadComponent,
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,

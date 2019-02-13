@@ -1,4 +1,4 @@
-<article *ngFor="let article of articles" class="row">
+<article *ngFor="let article of articles">
   <div class="col-md-3">
     <div
       class="image"
@@ -21,3 +21,4 @@
     </div>
   </div>
 </article>
+<app-article-load (loadArticles)="onArticlesLoad()">Load More</app-article-load>

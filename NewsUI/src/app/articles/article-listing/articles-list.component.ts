@@ -17,4 +17,8 @@ export class ArticlesListComponent implements OnInit {
   getArticles() {
     this.articles = this.apiService.getArticles();
   }
+
+  onArticlesLoad() {
+    console.log('Load Articles...');
+  }
 }
