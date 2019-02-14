@@ -1,10 +1,12 @@
 <header class="site-header">
   <div class="container">
     <a routerLink="/" class="logo">
-      <img src="assets/img/site-logo.png" alt="site logo">
+      <img src="assets/img/site-logo.png" alt="site logo" />
     </a>
     <nav class="auth-nav">
-      <button *ngIf="!isLogged()" class="btn" (click)="login()">Log In</button>
+      <button *ngIf="!isLogged()" class="btn" (click)="login()">
+        <span *ngIf="!isLoading()">Log In</span><fa-icon *ngIf="isLoading()" [icon]="faSpinner" [spin]="true"></fa-icon>
+      </button>
       <button *ngIf="isLogged()" class="btn" (click)="logout()">Log Out</button>
     </nav>
   </div>

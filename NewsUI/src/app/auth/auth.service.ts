@@ -8,12 +8,15 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   isLogged: boolean = !!localStorage.getItem('user');
+  isLoading: boolean = false;
 
   handleLogin(): void {
+    this.isLoading = true;
     this.http
       .post(`${LOCAL_URL}/login`, CREDENTIALS)
       .subscribe(
         res => {
+          this.isLoading = false;
           this.isLogged = true;
           localStorage.setItem('user', JSON.stringify(CREDENTIALS.username));
         }

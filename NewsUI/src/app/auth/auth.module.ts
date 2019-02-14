@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AuthService } from './auth.service';
 import { HeaderComponent } from './components/header/header.component';
@@ -15,7 +16,8 @@ import { HeaderComponent } from './components/header/header.component';
     AuthService
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FontAwesomeModule
   ]
 })
 export class AuthModule { }
