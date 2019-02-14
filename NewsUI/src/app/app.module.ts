@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AuthModule } from './auth/auth.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { PageHeaderComponent } from './layout/page-header/page-header.component';
 import { ControlComponent } from './control/control.component';
@@ -20,7 +22,6 @@ import { CheckboxComponent } from './common/checkbox/checkbox.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
     PageHeaderComponent,
     ControlComponent,
@@ -36,7 +37,9 @@ import { CheckboxComponent } from './common/checkbox/checkbox.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

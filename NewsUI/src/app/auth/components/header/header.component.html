@@ -4,8 +4,8 @@
       <img src="assets/img/site-logo.png" alt="site logo">
     </a>
     <nav class="auth-nav">
-      <a href="#" class="btn">Log In</a>
-      <a href="#" class="btn">Log Out</a>
+      <button *ngIf="!isLogged()" class="btn" (click)="login()">Log In</button>
+      <button *ngIf="isLogged()" class="btn" (click)="logout()">Log Out</button>
     </nav>
   </div>
 </header>
