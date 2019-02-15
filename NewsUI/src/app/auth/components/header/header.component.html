@@ -5,7 +5,8 @@
     </a>
     <nav class="auth-nav">
       <button *ngIf="!isLogged()" class="btn" (click)="login()">
-        <span *ngIf="!isLoading()">Log In</span><fa-icon *ngIf="isLoading()" [icon]="faSpinner" [spin]="true"></fa-icon>
+        <span *ngIf="!isLoading()">Log In</span>
+        <fa-icon *ngIf="isLoading()" [icon]="faSpinner" [spin]="true"></fa-icon>
       </button>
       <button *ngIf="isLogged()" class="btn" (click)="logout()">Log Out</button>
     </nav>

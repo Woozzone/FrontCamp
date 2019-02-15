@@ -1,0 +1,20 @@
+@import 'assets/scss/core/variables';
+@import 'assets/scss/core/mixins';
+
+:host {
+  display: block;
+  padding: $lg-offset;
+  margin-bottom: $xl-offset;
+  background-color: $background-color;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.02);
+}
+
+[class*='col-'] {
+  @include size(md) {
+    margin-bottom: $lg-offset;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

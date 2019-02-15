@@ -1,0 +1,12 @@
+@import 'assets/scss/core/variables';
+
+.page-header {
+  text-align: center;
+  font-family: $secondary-font-family;
+  background: url('../../../../assets/img/source-background.jpeg') 50% / cover;
+  padding: $xl-offset 0;
+  font-weight: bold;
+  font-size: $h1-font-size;
+  color: $background-color;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-3">
+      <app-data-list
+        [data-list]="sourcesService.sources"
+        placeholder="Select a Source..."
+        (changed)="onChangeSource($event)"
+      ></app-data-list>
+    </div>
+    <div class="col-lg-3 d-flex">
+      <app-input
+        type="text"
+        id="filter"
+        placeholder="Type a Keyword..."
+      ></app-input>
+      <button class="btn ml-2">Filter</button>
+    </div>
+    <div *ngIf="isLogged()" class="col-lg-3 d-flex align-items-center">
+      <app-checkbox
+        label="Only Created by Me"
+        id="only-author-toggle"
+      ></app-checkbox>
+    </div>
+    <div *ngIf="isLogged()" class="col-lg-3 d-flex justify-content-lg-end">
+      <button routerLink="/articles/new" class="btn">Add Article</button>
+    </div>
+  </div>
+</div>
