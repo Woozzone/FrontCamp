@@ -1,0 +1,12 @@
+<div class="input-field">
+  <input
+    type="checkbox"
+    name="{{ id }}"
+    id="{{ id }}"
+    [checked]="isChecked"
+  />
+  <span>
+    <fa-icon *ngIf="isChecked" [icon]="faCheck"></fa-icon>
+  </span>
+  <label *ngIf="label" for="{{ id }}" (click)="onChange()">{{ label }}</label>
+</div>

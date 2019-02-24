@@ -1,0 +1,26 @@
+<form action="" (submit)="onSubmit($event)">
+  <div class="row">
+    <div class="col-md-6">
+      <app-input type="text" label="Title" id="title"></app-input>
+    </div>
+    <div class="col-md-6">
+      <app-input type="text" label="Image" id="image"></app-input>
+    </div>
+    <div class="col-md-6">
+      <app-input type="text" label="Description" id="description"></app-input>
+    </div>
+    <div class="col-md-6">
+      <app-input type="text" label="Date" id="date"></app-input>
+    </div>
+    <div class="col-md-6">
+      <app-textarea label="Content" id="content"></app-textarea>
+    </div>
+    <div class="col-md-6">
+      <app-input type="text" label="Author" id="author"></app-input>
+    </div>
+  </div>
+  <div class="actions">
+    <button type="submit" class="btn">Save</button>
+    <button class="btn error">Cancel</button>
+  </div>
+</form>

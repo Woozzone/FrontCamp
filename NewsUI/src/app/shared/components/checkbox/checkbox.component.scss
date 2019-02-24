@@ -1,0 +1,28 @@
+@import 'assets/scss/core/variables';
+
+input[type='checkbox'] {
+  display: none;
+}
+
+label {
+  display: flex;
+  padding-left: 25px + $sm-offset;
+  min-height: 25px;
+  align-items: center;
+  cursor: pointer;
+}
+
+span {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border: 2px solid $tertiary-color;
+  pointer-events: none;
+}
+
+fa-icon {
+  color: $primary-color;
+}

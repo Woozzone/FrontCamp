@@ -1,0 +1,22 @@
+@import 'assets/scss/core/variables';
+
+article {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: $background-color;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.actions {
+  margin-top: $lg-offset;
+
+  .btn {
+    margin-right: $sm-offset;
+  }
+}
+
+h1 {
+  font-family: $secondary-font-family;
+  margin: 0 0 $base-offset;
+}

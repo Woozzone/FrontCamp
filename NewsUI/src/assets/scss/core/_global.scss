@@ -1,0 +1,36 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-family: $primary-font-family;
+  color: $text-color;
+  background-color: darken($background-color, 1);
+}
+
+a,
+button {
+  transition: all 0.2s ease;
+}
+
+a {
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+@each $heading in (h1, h2, h3, h4, h5, h6) {
+  #{heading} {
+    font-size: #{heading}-font-size;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

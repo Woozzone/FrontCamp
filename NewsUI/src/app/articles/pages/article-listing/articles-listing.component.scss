@@ -1,0 +1,49 @@
+@import 'assets/scss/core/variables';
+
+article {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $lg-offset;
+  background-color: $background-color;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 3px;
+
+  .image {
+    position: relative;
+    background-position: 50%;
+    background-size: cover;
+    padding-top: 75%;
+  }
+
+  .title {
+    font-family: $secondary-font-family;
+    margin: 0 0 $base-offset;
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .description {
+    margin: 0 0 $base-offset;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .btn {
+      margin-bottom: $sm-offset;
+    }
+  }
+}
