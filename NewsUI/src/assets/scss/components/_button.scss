@@ -27,4 +27,9 @@
       background-color: darken($error-color, 5);
     }
   }
+
+  &[disabled] {
+    cursor: auto;
+    opacity: 0.3;
+  }
 }

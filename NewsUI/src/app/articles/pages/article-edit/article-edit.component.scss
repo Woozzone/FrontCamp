@@ -1,0 +1,64 @@
+@import 'assets/scss/core/variables';
+
+form {
+  padding: $xl-offset;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.03);
+  background-color: $background-color;
+  border-radius: 3px;
+
+  .input-field {
+    margin-top: $xl-offset;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .actions {
+    margin-top: $xl-offset;
+
+    .btn {
+      margin-right: $sm-offset;
+    }
+  }
+}
+
+input {
+  background-color: transparent;
+  padding: $sm-offset;
+  border: 0;
+  border-bottom: 2px solid $tertiary-color;
+  font-family: $primary-font-family;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    border-color: $secondary-color;
+  }
+
+  &:focus {
+    outline: none;
+
+    + label {
+      top: 0;
+      transform: translate(-$sm-offset, -100%);
+      color: $text-color;
+    }
+  }
+
+  &::placeholder {
+    font-family: $primary-font-family;
+    color: $text-color;
+  }
+}
+
+label {
+  pointer-events: none;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: $sm-offset;
+  color: $muted-color;
+  transform: translateY(-50%);
+  font-weight: bold;
+  font-family: $secondary-font-family;
+}

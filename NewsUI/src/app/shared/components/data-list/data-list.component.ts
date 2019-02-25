@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./data-list.component.scss']
 })
 export class DataListComponent implements OnInit {
-  @Input() placeholder: String;
+  @Input() placeholder: string;
   @Input('data-list') dataList: Array<any>;
   @Output() changed = new EventEmitter();
   constructor() {}

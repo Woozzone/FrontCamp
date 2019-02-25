@@ -1,20 +1,20 @@
-<article *ngFor="let article of articlesService.articles">
+<article *ngFor="let article of articlesService.articles | filterArticles: this.articlesService.filterValue">
   <div class="col-md-3">
     <div
       class="image"
-      [ngStyle]="{ 'background-image': 'url(' + article.urlToImage + ')' }"
+      [ngStyle]="{ 'background-image': 'url(' + (article.urlToImage || '../../../../assets/img/blank.png') + ')' }"
     ></div>
   </div>
-  <div class="col-md-7">
+  <div class="col-md-{{isLocalSource(article.source.name) ? 7 : 9}}">
     <div class="content">
       <h2 class="title">
         <a routerLink="/articles/{{article.title}}">{{ article.title }}</a>
       </h2>
       <p class="description">{{ article.description }}</p>
-      <a class="btn" href={{article.url}}>Read More</a>
+      <a *ngIf="article.url" class="btn" href={{article.url}}>Read More</a>
     </div>
   </div>
-  <div class="col-md-2">
+  <div *ngIf="isLocalSource(article.source.name)" class="col-md-2">
     <div class="actions">
       <a routerLink="/articles/{{article.title}}/edit" class="btn" href="#">Edit</a>
       <a class="btn error" href="#">Delete</a>

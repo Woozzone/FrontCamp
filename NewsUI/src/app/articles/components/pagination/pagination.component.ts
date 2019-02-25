@@ -27,7 +27,6 @@ export class PaginationComponent implements OnInit {
   getArticlesBySourceName(name: string) {
     this.articlesService.getArticlesBySourceName(name).subscribe(data => {
       this.articlesService.articles = data.articles;
-      console.log(data);
     });
   }
 
@@ -41,7 +40,7 @@ export class PaginationComponent implements OnInit {
 
   showNextArticles(): void {
     this.articlesService.currentPage++;
-    
+
     this.handleArticlesSwitch();
   }
 

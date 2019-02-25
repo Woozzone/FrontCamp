@@ -1,0 +1,23 @@
+<article class="row">
+  <div class="col-md-4">
+    <img src="{{ article.urlToImage || '../../../../assets/img/blank.png' }}" alt="article.title" />
+  </div>
+
+  <div class="col-md-8">
+    <h1>{{ article.title }}</h1>
+    <div class="meta">
+      <span class="publish-date">
+        {{ article.publishedAt | date }}
+      </span>
+      <span class="author">
+        {{ article.author }}
+      </span>
+    </div>
+    <p class="desc">{{ article.description }}</p>
+    <div class="actions">
+      <a *ngIf="article.url" href="{{ article.url }}" class="btn">Go to Source Website</a>
+      <button *ngIf="isLocalSource(article.source.name)" routerLink="/articles/{{article.title}}/edit" class="btn">Edit</button>
+      <button *ngIf="isLocalSource(article.source.name)" class="btn error">Delete</button>
+    </div>
+  </div>
+</article>

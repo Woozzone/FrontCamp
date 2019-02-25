@@ -11,11 +11,26 @@ export class ArticlesListingComponent implements OnInit {
 
   ngOnInit() {
     this.getArticles();
+    this.getLocalArticles();
   }
 
   getArticles() {
     this.articlesService.getArticles().subscribe(data => {
       this.articlesService.articles = data.articles;
     });
+  }
+
+  getLocalArticles() {
+    this.articlesService.getLocalArticles().subscribe(articles => {
+      const newsArticles = this.articlesService.articles;
+      this.articlesService.articles = [
+        ...articles,
+        ...newsArticles
+      ];
+    });
+  }
+
+  isLocalSource(source: string): boolean {
+    return this.articlesService.isLocalSource(source);
   }
 }

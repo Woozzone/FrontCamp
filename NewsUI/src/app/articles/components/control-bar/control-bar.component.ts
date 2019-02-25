@@ -56,4 +56,8 @@ export class ControlBarComponent implements OnInit {
       this.getArticlesBySourceName(event.target.value);
     }
   }
+
+  onChangeFilter(event: any) {
+    this.articlesService.setFilterValue(event.target.value);
+  }
 }

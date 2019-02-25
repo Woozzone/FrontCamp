@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FormsModule } from '@angular/forms';
 import { AuthModule } from './auth/auth.module';
 import { ArticlesModule } from './articles/articles.module';
 
@@ -18,6 +19,7 @@ import { FooterComponent } from './layout/footer/footer.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AuthModule,
     ArticlesModule
   ],
@@ -25,5 +27,5 @@ import { FooterComponent } from './layout/footer/footer.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  
+
 }

@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { SourcesService } from './sources.service';
-import { API_URL, API_KEY } from '../shared/config';
+import { API_URL, LOCAL_URL, API_KEY, DEFAULT_SOURCE } from '../shared/config';
 import { Article } from '../shared/models/article.model';
 
 @Injectable()
 export class ArticlesService {
+  filterValue = '';
   articles: Article[] = [];
-  currentPage: number = 1;
+  currentPage = 1;
 
   constructor(
     private sourcesService: SourcesService,
@@ -18,6 +19,12 @@ export class ArticlesService {
 
   getArticles() {
     const url = `${API_URL}/top-headlines?language=en&page=${this.currentPage}&apiKey=${API_KEY}`;
+
+    return this.http.get<any>(url);
+  }
+
+  getLocalArticles() {
+    const url = `${LOCAL_URL}/articles`;
 
     return this.http.get<any>(url);
   }
@@ -31,5 +38,21 @@ export class ArticlesService {
 
       return this.http.get<any>(url);
     }
+  }
+
+  getArticleByTitle(title: string) {
+    return this.articles.filter(article => article.title === title)[0];
+  }
+
+  addArticle(article: Article): Observable<Article> {
+    return this.http.post<Article>(`${LOCAL_URL}/articles`, article);
+  }
+
+  setFilterValue(value: string) {
+    this.filterValue = value;
+  }
+
+  isLocalSource(source: string) {
+    return source === DEFAULT_SOURCE;
   }
 }

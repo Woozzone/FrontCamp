@@ -16,6 +16,14 @@ article {
   }
 }
 
+.publish-date {
+  margin-right: $base-offset;
+}
+
+.author {
+  font-weight: bold;
+}
+
 h1 {
   font-family: $secondary-font-family;
   margin: 0 0 $base-offset;
