@@ -10,17 +10,18 @@
     <div class="col-lg-3 d-flex">
       <app-input
         type="text"
-        id="filter"
+        id="article-filter"
         placeholder="Type a Keyword..."
+        (changed)="onChangeFilter($event)"
       ></app-input>
-      <button class="btn ml-2">Filter</button>
     </div>
-    <div *ngIf="isLogged()" class="col-lg-3 d-flex align-items-center">
+    <!-- Add logic later -->
+    <!-- <div *ngIf="isLogged()" class="col-lg-3 d-flex align-items-center">
       <app-checkbox
         label="Only Created by Me"
         id="only-author-toggle"
       ></app-checkbox>
-    </div>
+    </div> -->
     <div *ngIf="isLogged()" class="col-lg-3 d-flex justify-content-lg-end">
       <button routerLink="/articles/new" class="btn">Add Article</button>
     </div>

@@ -25,7 +25,7 @@ export class ControlBarComponent implements OnInit {
   }
 
   isSourcesContain(sourceName: string): boolean {
-    return !!this.sourcesService.sources.filter(source => source.name === sourceName).length;
+    return !!this.sourcesService.sources.filter(source => source.name === sourceName).length || sourceName === '';
   }
 
   getSources(): void {
@@ -44,7 +44,7 @@ export class ControlBarComponent implements OnInit {
 
   getArticlesBySourceName(name: string) {
     this.articlesService.getArticlesBySourceName(name).subscribe(data => {
-      this.articlesService.articles = data.articles;
+      this.articlesService.articles = data.articles || data;
     });
   }
 
@@ -55,5 +55,9 @@ export class ControlBarComponent implements OnInit {
       this.setCurrentSource(event);
       this.getArticlesBySourceName(event.target.value);
     }
+  }
+
+  onChangeFilter(event: any) {
+    this.articlesService.setFilterValue(event.target.value);
   }
 }

@@ -1,0 +1,23 @@
+
+
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+  <h2>Create New Article</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="input-field">
+        <input formControlName="title" type="text" name="title" id="title">
+        <label for="title">Title</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="input-field">
+        <input formControlName="description" type="text" name="description" id="description">
+        <label for="description">Description</label>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <button [disabled]="!createForm.valid" type="submit" class="btn">Save</button>
+    <button class="btn error" routerLink="/articles">Cancel</button>
+  </div>
+</form>

@@ -7,7 +7,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./checkbox.component.scss']
 })
 export class CheckboxComponent implements OnInit {
-  isChecked: boolean = false;
+  isChecked = false;
   faCheck = faCheck;
   @Input() id: string;
   @Input() label: string;

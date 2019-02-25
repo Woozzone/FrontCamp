@@ -1,13 +1,15 @@
 export interface Article {
+  _id?: string;
   source: {
-    id: String,
-    name: String
-  },
-  author: String,
-  title: String,
-  description: String,
-  url: String,
-  urlToImage: String,
-  publishedAt: String,
-  content: String
+    id?: string;
+    name: string;
+  };
+  author: string;
+  title: string;
+  description: string;
+  url?: string;
+  urlToImage?: string;
+  publishedAt: string;
+  updatedAt?: string;
+  content?: string;
 }

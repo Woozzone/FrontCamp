@@ -19,15 +19,14 @@ export class PaginationComponent implements OnInit {
   ngOnInit() {}
 
   getArticles() {
-    this.articlesService.getArticles().subscribe(data => {
-      this.articlesService.articles = data.articles;
+    this.articlesService.getArticles().subscribe(articles => {
+      this.articlesService.articles = articles;
     });
   }
 
   getArticlesBySourceName(name: string) {
     this.articlesService.getArticlesBySourceName(name).subscribe(data => {
       this.articlesService.articles = data.articles;
-      console.log(data);
     });
   }
 
@@ -41,7 +40,7 @@ export class PaginationComponent implements OnInit {
 
   showNextArticles(): void {
     this.articlesService.currentPage++;
-    
+
     this.handleArticlesSwitch();
   }
 

@@ -14,8 +14,18 @@ export class ArticlesListingComponent implements OnInit {
   }
 
   getArticles() {
-    this.articlesService.getArticles().subscribe(data => {
-      this.articlesService.articles = data.articles;
+    this.articlesService.getArticles().subscribe(articles => {
+      this.articlesService.articles = articles;
     });
+  }
+
+  deleteArticle(id: string): void {
+    this.articlesService.deleteArticle(id).subscribe(res => {
+      this.articlesService.articles = this.articlesService.articles.filter(article => article._id !== id);
+    });
+  }
+
+  isLocalSource(source: string): boolean {
+    return this.articlesService.isLocalSource(source);
   }
 }

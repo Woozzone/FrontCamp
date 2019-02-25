@@ -8,7 +8,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   isLogged: boolean = !!localStorage.getItem('user');
-  isLoading: boolean = false;
+  isLoading = false;
 
   handleLogin(): void {
     this.isLoading = true;
