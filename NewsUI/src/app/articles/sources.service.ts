@@ -6,7 +6,9 @@ import { Source } from '../shared/models/source.model';
 
 @Injectable()
 export class SourcesService {
-  sources: Source[] = [];
+  sources: Source[] = [{
+    name: DEFAULT_SOURCE
+  }];
   currentSource: string = DEFAULT_SOURCE;
   constructor(private http: HttpClient) {}
 

@@ -1,4 +1,5 @@
 export interface Article {
+  _id?: string;
   source: {
     id?: string;
     name: string;

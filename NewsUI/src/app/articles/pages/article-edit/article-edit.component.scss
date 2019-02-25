@@ -37,12 +37,6 @@ input {
 
   &:focus {
     outline: none;
-
-    + label {
-      top: 0;
-      transform: translate(-$sm-offset, -100%);
-      color: $text-color;
-    }
   }
 
   &::placeholder {
@@ -55,10 +49,10 @@ label {
   pointer-events: none;
   transition: all 0.3s ease;
   position: absolute;
-  top: 50%;
   left: $sm-offset;
-  color: $muted-color;
-  transform: translateY(-50%);
   font-weight: bold;
   font-family: $secondary-font-family;
+  top: 0;
+  transform: translate(-$sm-offset, -100%);
+  color: $text-color;
 }

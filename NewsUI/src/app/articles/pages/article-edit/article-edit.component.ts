@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ArticlesService } from '../../articles.service';
+import { Article } from '../../../shared/models/article.model';
 
 @Component({
   selector: 'app-article-edit',
@@ -8,6 +11,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   encapsulation: ViewEncapsulation.None
 })
 export class ArticleEditComponent implements OnInit {
+
+  article: Article;
 
   editForm = new FormGroup({
     title: new FormControl('', [
@@ -20,12 +25,35 @@ export class ArticleEditComponent implements OnInit {
     ])
   });
 
-  constructor() { }
+  constructor(private articlesService: ArticlesService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    const title = this.route.snapshot.paramMap.get('title');
+    this.setCurrentArticle(title);
+    this.updateForm();
   }
 
-  onSubmit(event: any): void {
-    console.warn(this.editForm.value);
+  updateForm() {
+    this.editForm.patchValue({
+      title: this.article.title,
+      description: this.article.description
+    });
+  }
+
+  setCurrentArticle(title: string): void {
+    this.article = this.articlesService.getArticleByTitle(title);
+  }
+
+  updateArticle(article: Article): void {
+    this.articlesService.updateArticle(article).subscribe(res => {
+      this.router.navigate([`/articles`]);
+    });
+  }
+
+  onSubmit(): void {
+    this.updateArticle({
+      ...this.article,
+      ...this.editForm.value
+    });
   }
 }

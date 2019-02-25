@@ -17,7 +17,7 @@
     <div class="actions">
       <a *ngIf="article.url" href="{{ article.url }}" class="btn">Go to Source Website</a>
       <button *ngIf="isLocalSource(article.source.name)" routerLink="/articles/{{article.title}}/edit" class="btn">Edit</button>
-      <button *ngIf="isLocalSource(article.source.name)" class="btn error">Delete</button>
+      <button *ngIf="isLocalSource(article.source.name)" (click)="deleteArticle(article._id)" class="btn error">Delete</button>
     </div>
   </div>
 </article>

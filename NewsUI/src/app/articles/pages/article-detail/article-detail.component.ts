@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ArticlesService } from '../../articles.service';
 import { Article } from '../../../shared/models/article.model';
 
@@ -13,6 +13,7 @@ export class ArticleDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private articlesService: ArticlesService
   ) {}
 
@@ -23,6 +24,13 @@ export class ArticleDetailComponent implements OnInit {
   getArticle(): void {
     const title = this.route.snapshot.paramMap.get('title');
     this.article = this.articlesService.getArticleByTitle(title);
+  }
+
+  deleteArticle(id: string): void {
+    this.articlesService.deleteArticle(id).subscribe(res => {
+      this.articlesService.articles = this.articlesService.articles.filter(article => article._id !== id);
+      this.router.navigate(['/articles']);
+    });
   }
 
   isLocalSource(source: string): boolean {

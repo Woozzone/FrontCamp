@@ -11,22 +11,17 @@ export class ArticlesListingComponent implements OnInit {
 
   ngOnInit() {
     this.getArticles();
-    this.getLocalArticles();
   }
 
   getArticles() {
-    this.articlesService.getArticles().subscribe(data => {
-      this.articlesService.articles = data.articles;
+    this.articlesService.getArticles().subscribe(articles => {
+      this.articlesService.articles = articles;
     });
   }
 
-  getLocalArticles() {
-    this.articlesService.getLocalArticles().subscribe(articles => {
-      const newsArticles = this.articlesService.articles;
-      this.articlesService.articles = [
-        ...articles,
-        ...newsArticles
-      ];
+  deleteArticle(id: string): void {
+    this.articlesService.deleteArticle(id).subscribe(res => {
+      this.articlesService.articles = this.articlesService.articles.filter(article => article._id !== id);
     });
   }
 

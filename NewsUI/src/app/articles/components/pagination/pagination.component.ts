@@ -19,8 +19,8 @@ export class PaginationComponent implements OnInit {
   ngOnInit() {}
 
   getArticles() {
-    this.articlesService.getArticles().subscribe(data => {
-      this.articlesService.articles = data.articles;
+    this.articlesService.getArticles().subscribe(articles => {
+      this.articlesService.articles = articles;
     });
   }
 

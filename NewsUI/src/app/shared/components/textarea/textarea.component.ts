@@ -6,9 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./textarea.component.scss']
 })
 export class TextareaComponent implements OnInit {
-  @Input() id: String;
-  @Input() placeholder: String;
-  @Input() label: String;
+  @Input() id: string;
+  @Input() placeholder: string;
+  @Input() label: string;
 
   constructor() { }
 

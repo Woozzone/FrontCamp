@@ -16,9 +16,10 @@
   </div>
   <div *ngIf="isLocalSource(article.source.name)" class="col-md-2">
     <div class="actions">
-      <a routerLink="/articles/{{article.title}}/edit" class="btn" href="#">Edit</a>
-      <a class="btn error" href="#">Delete</a>
+      <button routerLink="/articles/{{article.title}}/edit" class="btn">Edit</button>
+      <button (click)="deleteArticle(article._id)" class="btn error">Delete</button>
     </div>
   </div>
 </article>
-<articles-pagination></articles-pagination>
+<!-- @TODO: rewrite pagination logic -->
+<!-- <articles-pagination></articles-pagination> -->
