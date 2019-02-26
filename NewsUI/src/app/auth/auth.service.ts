@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { LOCAL_URL, CREDENTIALS } from '../shared/config';
+import { LOCAL_URL } from '../shared/config';
 
 @Injectable()
 export class AuthService {
@@ -10,17 +10,9 @@ export class AuthService {
   isLogged: boolean = !!localStorage.getItem('user');
   isLoading = false;
 
-  handleLogin(): void {
+  handleLogin(credentials) {
     this.isLoading = true;
-    this.http
-      .post(`${LOCAL_URL}/login`, CREDENTIALS)
-      .subscribe(
-        res => {
-          this.isLoading = false;
-          this.isLogged = true;
-          localStorage.setItem('user', JSON.stringify(CREDENTIALS.username));
-        }
-      );
+    return this.http.post(`${LOCAL_URL}/login`, credentials);
   }
 
   handleLogout(): void {
