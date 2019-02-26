@@ -20,7 +20,7 @@ export class SourcesService {
     return this.currentSource;
   }
 
-  setCurrentSource(source: string): void {
+  setCurrentSource(source?: string): void {
     this.currentSource = source || DEFAULT_SOURCE;
   }
 }
